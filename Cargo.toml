@@ -1,0 +1,11 @@
+[package]
+name = "youtube-downloader"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+thirtyfour = "0.31.0"
+tokio = { version = "1.28.2", features = ["full"] }
+rustube = "0.6.0"
+youtube_dl = "0.8.1"
+structopt = "0.3.26"
