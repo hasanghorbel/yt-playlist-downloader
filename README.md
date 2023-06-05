@@ -4,8 +4,8 @@
 
 ### then run command :
 
-``cargo run -- -u <playlist_url>  -s <starting_song> -n <number_of_songs>``
+``cargo run -- -u <playlist_url> -s <starting_song> -n <number_of_songs>``
 
 ### or the release version : 
 
-``cargo run --release -- -u <playlist_url>  -s <starting_song> -n <number_of_songs>``
+``cargo run --release -- -u <playlist_url> -s <starting_song> -n <number_of_songs>``
