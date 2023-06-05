@@ -7,8 +7,8 @@ use tokio::fs;
 
 // !!!! dont forget to set your chromedriver in your system envirenment path !!!
 // then run command :
-// cargo run -- -s <starting_song> -u <playlist_url> -n <number_of_songs>
-// or : cargo run --release -- -s <starting_song> -u <playlist_url> -n <number_of_songs>
+// cargo run -- -u <playlist_url> -s <starting_song> -n <number_of_songs>
+// or : cargo run --release -- -u <playlist_url> -s <starting_song> -n <number_of_songs>
 #[tokio::main]
 async fn main() -> WebDriverResult<()> {
     // Chromedriver command
