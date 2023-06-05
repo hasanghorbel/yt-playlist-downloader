@@ -7,8 +7,8 @@ use tokio::fs;
 
 // !!!! dont forget to set your chromedriver in your system envirenment path !!!
 // then run command :
-// cargo run -- -u <playlist_url> -n <number_of_songs>
-// or : cargo run --release -- -u <playlist_url> -n <number_of_songs>
+// cargo run -- -s <starting_song> -u <playlist_url> -n <number_of_songs>
+// or : cargo run --release -- -s <starting_song> -u <playlist_url> -n <number_of_songs>
 #[tokio::main]
 async fn main() -> WebDriverResult<()> {
     // Chromedriver command
@@ -29,6 +29,7 @@ async fn main() -> WebDriverResult<()> {
     driver.goto(playlist_url).await?;
 
     let mut links = Vec::new();
+    let mut skips = Vec::new();
 
     for _ in 0..number_of_scrolls {
         driver
@@ -56,15 +57,22 @@ async fn main() -> WebDriverResult<()> {
 
     fs::create_dir_all("downloads").await?;
 
-    for i in 0..options.num {
+    for i in (options.start - 1)..options.num {
         //download part
         println!("downloading song n° {}:", i + 1);
         match dl(links[i].clone()).await {
             Ok(some) => some,
             _ => {
+                skips.push(&links[i]);
                 println!("skip {}", links[i]);
             }
         }
+    }
+
+    println!("-------------------------- Songs skipped --------------------------");
+
+    for skip in skips {
+        println!("{}", skip);
     }
     Ok(())
 }
@@ -79,6 +87,8 @@ struct Options {
     url: String,
     #[structopt(short = "n", long = "number_of_songs", default_value = "444")]
     num: usize,
+    #[structopt(short = "s", long = "starting_song", default_value = "1")]
+    start: usize,
 }
 
 async fn dl(url: String) -> Result<(), rustube::Error> {
@@ -86,8 +96,7 @@ async fn dl(url: String) -> Result<(), rustube::Error> {
     let descrambler = VideoFetcher::from_id(id.into_owned())
         .unwrap()
         .fetch()
-        .await
-        .unwrap();
+        .await?;
 
     let video = descrambler.descramble()?;
     let best_quality = video
