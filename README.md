@@ -13,7 +13,7 @@ cargo run -- -u <playlist_url> -s <starting_song> -n <number_of_songs>`
 ```
 cargo run --release -- -u <playlist_url> -s <starting_song> -n <number_of_songs>
 ```
-#### Or run the example with command:
+### Or run the example with command:
 ```
 cargo run
 ```
