@@ -1,4 +1,4 @@
-# best_playlist_downloader
+# Playlist-Downloader
 
 ## !!!! dont forget to set your chromedriver in your system envirenment path !!!
 
