@@ -5,10 +5,6 @@ use structopt::StructOpt;
 use thirtyfour::prelude::*;
 use tokio::fs;
 
-// !!!! dont forget to set your chromedriver in your system envirenment path !!!
-// then run command :
-// cargo run -- -u <playlist_url> -s <starting_song> -n <number_of_songs>
-// or : cargo run --release -- -u <playlist_url> -s <starting_song> -n <number_of_songs>
 #[tokio::main]
 async fn main() -> WebDriverResult<()> {
     // Chromedriver command
