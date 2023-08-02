@@ -77,11 +77,10 @@ async fn main() -> WebDriverResult<()> {
 struct Options {
     #[structopt(
         short = "u",
-        long = "playlist_url",
-        default_value = "https://www.youtube.com/playlist?list=PLacfgxju84VisWNxjg13q5og-TA9uKTjA"
+        long = "playlist_url"
     )]
     url: String,
-    #[structopt(short = "n", long = "number_of_songs", default_value = "444")]
+    #[structopt(short = "n", long = "number_of_songs")]
     num: usize,
     #[structopt(short = "s", long = "starting_song", default_value = "1")]
     start: usize,
