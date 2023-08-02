@@ -13,9 +13,6 @@ cargo run -- -u <playlist_url> -s <starting_song> -n <number_of_songs>`
 ```
 cargo run --release -- -u <playlist_url> -s <starting_song> -n <number_of_songs>
 ```
-### Or run the example with command:
-```
-cargo run
-```
+## ! starting_song is optional !
 ![test](https://github.com/IsekaiCode/Playlist-Downloader/assets/109307799/57814ad4-7bd8-4f3d-bdbf-205a2579975a)
 
