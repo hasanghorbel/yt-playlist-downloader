@@ -1,6 +1,6 @@
 # Playlist-Downloader
 
-## !!!! don't forget to set your chromedriver in your system envirenment path !!!
+## !!! don't forget to set your chromedriver in your system envirenment path !!!
 
 ### Then run command:
 
